@@ -1,0 +1,135 @@
+ # popular starting stations
+> tripdata_2023_v2.1 %>%
++   group_by(start_station_name) %>%
++   summarise(no_of_starts = n()) %>%
++   filter(start_station_name != "") %>%
++   arrange(desc(no_of_starts))
+# A tibble: 1,592 × 2
+   start_station_name                 no_of_starts
+   <chr>                                     <int>
+ 1 Streeter Dr & Grand Ave                   63249
+ 2 DuSable Lake Shore Dr & Monroe St         40288
+ 3 Michigan Ave & Oak St                     37383
+ 4 DuSable Lake Shore Dr & North Blvd        35966
+ 5 Clark St & Elm St                         35805
+ 6 Kingsbury St & Kinzie St                  34965
+ 7 Wells St & Concord Ln                     33588
+ 8 Clinton St & Washington Blvd              32715
+ 9 Wells St & Elm St                         30407
+10 Millennium Park                           30154
+# ℹ 1,582 more rows
+# ℹ Use `print(n = ...)` to see more rows
+> 
+> # popular starting stations for members
+> tripdata_2023_v2.1 %>%
++   filter(member_casual == 'member') %>%
++   group_by(start_station_name) %>%
++   summarise(no_of_starts = n()) %>%
++   filter(start_station_name != "") %>%
++   arrange(desc(no_of_starts))
+# A tibble: 1,455 × 2
+   start_station_name           no_of_starts
+   <chr>                               <int>
+ 1 Clinton St & Washington Blvd        26216
+ 2 Kingsbury St & Kinzie St            26171
+ 3 Clark St & Elm St                   25001
+ 4 Wells St & Concord Ln               21418
+ 5 Clinton St & Madison St             20596
+ 6 Wells St & Elm St                   20400
+ 7 University Ave & 57th St            20038
+ 8 Broadway & Barry Ave                18959
+ 9 Loomis St & Lexington St            18900
+10 State St & Chicago Ave              18484
+# ℹ 1,445 more rows
+# ℹ Use `print(n = ...)` to see more rows
+> 
+> # popular starting stations for casual
+> tripdata_2023_v2.1 %>%
++   filter(member_casual == 'casual') %>%
++   group_by(start_station_name) %>%
++   summarise(no_of_starts = n()) %>%
++   filter(start_station_name != "") %>%
++   arrange(desc(no_of_starts))
+# A tibble: 1,549 × 2
+   start_station_name                 no_of_starts
+   <chr>                                     <int>
+ 1 Streeter Dr & Grand Ave                   46030
+ 2 DuSable Lake Shore Dr & Monroe St         30487
+ 3 Michigan Ave & Oak St                     22664
+ 4 DuSable Lake Shore Dr & North Blvd        20338
+ 5 Millennium Park                           20226
+ 6 Shedd Aquarium                            17781
+ 7 Theater on the Lake                       16359
+ 8 Dusable Harbor                            15490
+ 9 Wells St & Concord Ln                     12170
+10 Montrose Harbor                           11987
+# ℹ 1,539 more rows
+# ℹ Use `print(n = ...)` to see more rows
+> 
+> # popular final stations for all users by end station
+> tripdata_2023_v2.1 %>%
++   group_by(end_station_name) %>%
++   summarise(no_of_ends = n()) %>%
++   filter(end_station_name != "") %>%
++   arrange(desc(no_of_ends))
+# A tibble: 1,597 × 2
+   end_station_name                   no_of_ends
+   <chr>                                   <int>
+ 1 Streeter Dr & Grand Ave                 64197
+ 2 DuSable Lake Shore Dr & North Blvd      39299
+ 3 DuSable Lake Shore Dr & Monroe St       38022
+ 4 Michigan Ave & Oak St                   37994
+ 5 Clark St & Elm St                       34962
+ 6 Kingsbury St & Kinzie St                34253
+ 7 Wells St & Concord Ln                   34172
+ 8 Clinton St & Washington Blvd            33394
+ 9 Millennium Park                         31049
+10 Theater on the Lake                     30596
+# ℹ 1,587 more rows
+# ℹ Use `print(n = ...)` to see more rows
+> 
+> # popular final stations for members by end station
+> tripdata_2023_v2.1 %>%
++   filter(member_casual == 'member') %>%
++   group_by(end_station_name) %>%
++   summarise(no_of_ends = n()) %>%
++   filter(end_station_name != "") %>%
++   arrange(desc(no_of_ends))
+# A tibble: 1,455 × 2
+   end_station_name             no_of_ends
+   <chr>                             <int>
+ 1 Clinton St & Washington Blvd      27445
+ 2 Kingsbury St & Kinzie St          26366
+ 3 Clark St & Elm St                 24858
+ 4 Wells St & Concord Ln             22248
+ 5 Clinton St & Madison St           22095
+ 6 Wells St & Elm St                 20227
+ 7 University Ave & 57th St          20217
+ 8 Broadway & Barry Ave              19393
+ 9 State St & Chicago Ave            19027
+10 Loomis St & Lexington St          18591
+# ℹ 1,445 more rows
+# ℹ Use `print(n = ...)` to see more rows
+> 
+> # popular final stations for casual users by end station
+> tripdata_2023_v2.1 %>%
++   filter(member_casual == 'casual') %>%
++   group_by(end_station_name) %>%
++   summarise(no_of_ends = n()) %>%
++   filter(end_station_name != "") %>%
++   arrange(desc(no_of_ends))
+# A tibble: 1,543 × 2
+   end_station_name                   no_of_ends
+   <chr>                                   <int>
+ 1 Streeter Dr & Grand Ave                 49310
+ 2 DuSable Lake Shore Dr & Monroe St       27539
+ 3 Michigan Ave & Oak St                   23688
+ 4 DuSable Lake Shore Dr & North Blvd      23255
+ 5 Millennium Park                         22219
+ 6 Theater on the Lake                     17572
+ 7 Shedd Aquarium                          15652
+ 8 Dusable Harbor                          13558
+ 9 Wells St & Concord Ln                   11924
+10 Montrose Harbor                         11640
+# ℹ 1,533 more rows
+# ℹ Use `print(n = ...)` to see more rows
